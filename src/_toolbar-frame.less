@@ -82,6 +82,17 @@
       color: @fg-text-muted;
       font-style: normal;
     }
+    // restore tt-rss narrow styles disabled via @breakpoint-md in _variables
+    .media(0, md, {
+      :is(.icon-syndicate, #selected_prompt) {
+        display: none;
+      }
+    });
+    // tt-rss narrow layout toggle, tt-rss enables its narrow layout behavior (e.g. back button closing articles,
+    // swipe to mark as read) whenever it is visible, which would interfere with the theme's own mobile layout
+    .sidebar-toggle {
+      display: none !important;
+    }
 
     // -------------------------------------------------------------------------
     // buttons excluding show/hide feeds
