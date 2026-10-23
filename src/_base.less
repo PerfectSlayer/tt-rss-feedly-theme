@@ -86,7 +86,8 @@
   }
   #feeds-holder_splitter,
   #feed_current_unread,
-  #toolbar > .material-icons {
+  #toolbar > .material-icons,
+  #toolbar > :is(#updates-available, #plugin-updates-available) {
     display: none;
   }
   #toolbar-frame,
@@ -195,7 +196,7 @@ body.flat {
     }
   }
 
-  #updates-available {
+  :is(#updates-available, #plugin-updates-available) {
     padding-right: 0 !important;
     color: @color-marked !important;
   }

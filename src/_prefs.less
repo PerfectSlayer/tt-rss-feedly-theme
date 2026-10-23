@@ -25,7 +25,8 @@ body.ttrss_prefs {
     margin-top: 1px;
     padding: 0;
 
-    > a {
+    // exit button, excluding update links
+    > a:not([id]) {
       display: inline-flex;
       gap: 4px;
       margin-left: 8px;
@@ -54,7 +55,9 @@ body.ttrss_prefs {
   // ---------------------------------------------------------------------------
   .media(0, lg, {
     // remove header icons, text from prefs exit button, main top tabs and feeds left tabs
-    :is(#header > a, #header > i, #pref-tabs_tablist .tabLabel, .dijitTabContainerLeft-tabs .tabLabel) {
+    // (less fails to parse nested parentheses inside `:is()` here, so keep the exit button separate)
+    #header > a:not([id]),
+    :is(#header > i, #header > a > i, #pref-tabs_tablist .tabLabel, .dijitTabContainerLeft-tabs .tabLabel) {
       gap: 0;
       font-size: 0;
     }

@@ -66,7 +66,7 @@
   .dijitTab.dijitTab:not(.dijitChecked) {
     background-color: transparent;
   }
-  &.ttrss_prefs #header > a:is(:hover, :focus-visible),
+  &.ttrss_prefs #header > a:not([id]):is(:hover, :focus-visible),
   .dijitTab.dijitHover:not(.dijitChecked), // no focus here, would stick after click, no :focus-visible possible
   :where(.dijitTreeRow:focus-within), // needs low specificity, works for feeds in prefs, sadly not for feeds-holder
   .dijitTreeRowHover,
@@ -88,7 +88,7 @@
   .dijitToolbar .dijitHover:not(.dijitSelect) .dijitButtonNode {
     background-color: @bg-button-hover;
   }
-  &.ttrss_prefs #header > a:active,
+  &.ttrss_prefs #header > a:not([id]):active,
   .dijitAccordionInnerContainer.dijitActive,
   label.dijitButton.dijitButton:active,
   :is(.dijitButton, .dijitDropDownButton):where(.dijitActive) .dijitButtonNode,
@@ -124,7 +124,7 @@
   .dijitTextBox.dijitTextBox.dijitTextBox {
     background-color: @bg-input;
   }
-  &.ttrss_prefs #header > a:active,
+  &.ttrss_prefs #header > a:not([id]):active,
   label.dijitButton.dijitButton.dijitButton, // adjust fake buttons
   [class*="alt-"] .dijitButtonNode.dijitButtonNode, // colored buttons need higher specificity
   .dijitButtonNode.dijitButtonNode, // not stronger to keep toolbar buttons borderless
