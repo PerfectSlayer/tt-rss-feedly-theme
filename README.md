@@ -4,9 +4,11 @@ This is a theme for the popular self-hosted RSS reader [Tiny Tiny RSS](https://t
 
 For the best experience, please use a current browser.
 
+> **About this fork:** this is a fork of [levito/tt-rss-feedly-theme](https://github.com/levito/tt-rss-feedly-theme) by Veit Lehmann, which has not been updated since April 2023. It keeps the theme compatible with the current [Tiny Tiny RSS](https://github.com/tt-rss/tt-rss) (missing icons, layout regressions, narrow layout conflicts). It includes community fixes by [TonyRL](https://github.com/levito/tt-rss-feedly-theme/pull/134) and [eric-pierce](https://github.com/eric-pierce/tt-rss-feedly-theme), and fixes for the issues reported upstream, thanks to all reporters.
+
 ## Quick Start
 
-1. [Download the theme](levito/tt-rss-feedly-theme/archive/refs/heads/dist.zip) or clone the [_dist_ branch](https://github.com/levito/tt-rss-feedly-theme/tree/dist)
+1. [Download the theme](https://github.com/PerfectSlayer/tt-rss-feedly-theme/archive/refs/heads/dist.zip) or clone the [_dist_ branch](https://github.com/PerfectSlayer/tt-rss-feedly-theme/tree/dist)
 2. Unzip and copy the extracted files to `[tt-rss-root]/themes.local`
    - `feedly*.css` and the `feedly` directory are needed to get all theme variants
    - `local-overrides.js` is optional, it provides polyfills for Safari and prepares utility views for mobile-friendly styling
@@ -14,7 +16,7 @@ For the best experience, please use a current browser.
 3. Go into your TT-RSS preferences and select the feedly theme.
 4. Install/activate recommended plugins
    - `toggle_sidebar` for collapsing the feeds holder sidebar by clicking the left side of the screen
-   - `close_button` to allow closing article detail in split view, important for mobile
+   - [`close_button`](https://github.com/tt-rss/tt-rss-plugin-close-button) to allow closing article detail in split view, important for mobile (not bundled with TT-RSS, install it to `[tt-rss-root]/plugins.local`)
    - `shorten_expanded` to truncate long articles in combined view
 
 ## Features
@@ -32,6 +34,8 @@ For the best experience, please use a current browser.
 ## Configuration
 
 There are different color variants available. If you choose the _auto_ variants, your OS/browser will decide whether to use the light or dark color scheme.
+
+Alternatively, TT-RSS can switch between a light and a dark theme by itself, for users keeping the default theme and for the login page. To use this theme there, set the TT-RSS configuration options `TTRSS_DEFAULT_LIGHT_THEME=feedly.css` and `TTRSS_DEFAULT_DARK_THEME=feedly_night.css` (or any other color variant).
 
 You can configure the fonts and the UI spacing by using the _Customize_ button in the TT-RSS settings and adding/adjusting this chunk of CSS code:
 
@@ -74,7 +78,7 @@ In order to generate the CSS files, you will need to have Node.js and NPM instal
 ## FAQ
 
 ### Where are the CSS files? They used to be at the root level
-CSS is now pushed to the [_dist_ branch](https://github.com/levito/tt-rss-feedly-theme/tree/dist). So now you can clone/download only the files that you need and don't need to check which files have to be copied for installation. Also, the _main_ branch commit history stays clean so it's easier to track changes.
+CSS is now pushed to the [_dist_ branch](https://github.com/PerfectSlayer/tt-rss-feedly-theme/tree/dist). So now you can clone/download only the files that you need and don't need to check which files have to be copied for installation. Also, the _main_ branch commit history stays clean so it's easier to track changes.
 
 ### I don't want to copy the files every time – how do I stay up-to-date easily?
 You can clone this repo and `git checkout dist` in it. Then change to your TT-RSS installation's `themes.local` directory and `ln -s [path/to]/tt-rss-feedly-theme/* .`. To update, just `git pull` in the theme's directory.
@@ -83,7 +87,7 @@ You can clone this repo and `git checkout dist` in it. Then change to your TT-RS
 Please make sure that you don't have an old copy of this theme in the `themes` directory of your TT-RSS installation. Third-party themes should go into the `themes.local` directory, but files in the `themes` directory will override any file with the same name in the `themes.local` directory.
 
 ### The theme looks broken
-Please make sure to have the most recent version of TT-RSS installed (I test on [TT-RSS git master](https://dev.tt-rss.org/tt-rss/tt-rss)). Also, make sure to use a supported browser in the most recent version. If it's still broken, you might have found a bug. Feel free to open an issue or create a PR.
+Please make sure to have the most recent version of TT-RSS installed (the theme is tested on [TT-RSS main branch](https://github.com/tt-rss/tt-rss)). Also, make sure to use a supported browser in the most recent version. If it's still broken, you might have found a bug. Feel free to open an issue or create a PR.
 
 ### Which browsers are supported?
 This theme works best with Chromium-based browsers like Chrome, Brave, Edge, Vivaldi or Opera. Firefox and Safari are also supported but they're missing some minor features. On mobile devices, again, Chromium-based browsers on Android work best but Safari and other browsers on iOS should also work fine.
